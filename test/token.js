@@ -10,10 +10,13 @@ describe("Token Contract", function(){
     let addrs;
 
     beforeEach(async function(){
-        tokenInstance = await ethers.getContractFactory('Token');   // instance of contract
+        tokenInstance = await ethers.getContractFactory('Token');   // instance of contract, Token is contract name
         [owner,addr1,addr2,...addrs] = await ethers.getSigners();   // FROM HARDHAT LOCAL NODE
+        console.log("Signer: ", addr1);
         deployedTokenContract = await tokenInstance.deploy();       // deploy contract 
     });
+
+    
 
     describe("Deployment function", function(){
         it("Should set the right owner", async function(){
